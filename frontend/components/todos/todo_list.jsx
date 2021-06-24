@@ -18,7 +18,7 @@ export default class TodoList extends React.Component {
 
     return (
       <>
-        <TodoForm receiveTodo={this.props.receiveTodo}/>
+        <TodoForm receiveTodo={this.props.receiveTodo} createTodo={this.props.createTodo}/>
         <ul>{todoLi}</ul>
       </>
     );
