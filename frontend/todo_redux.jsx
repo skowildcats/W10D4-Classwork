@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root"
 
 import configureStore from './store/store';
+import * as APIUtil from './utils/todo_api_util';
 import {receiveTodo, receiveTodos, removeTodo, fetchTodos} from './actions/todo_actions';
 import {receiveStep, receiveSteps, removeStep, toggleStep} from './actions/step_actions';
 import {allTodos, stepsByTodoId} from './reducers/selector'
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.allTodos = allTodos;
   // window.stepsByTodoId = stepsByTodoId;
   window.fetchTodos = fetchTodos;
+  window.APIUtil = APIUtil;
   
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
