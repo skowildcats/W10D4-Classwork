@@ -12,26 +12,20 @@ export default class TodoListItem extends React.Component {
     this.setState({detail: !this.state.detail});
   }
 
-  done(e) {
+  toggleTodo(e) {
     e.preventDefault()
-    const newTodo = Object.assign({}, this.props.todo);
-    newTodo.done = true;
-    this.props.receiveTodo(newTodo);
-  }
-
-  undo(e) {
-    e.preventDefault()
-    const newTodo = Object.assign({}, this.props.todo);
-    newTodo.done = false;
-    this.props.receiveTodo(newTodo);
+    // const newTodo = Object.assign({}, this.props.todo);
+    // newTodo.done = !newTodo.done;
+    this.props.todo.done = !this.props.todo.done
+    this.props.updateTodo({todo: this.props.todo});
   }
 
   render() {
     let doneButton = null;
     if (this.props.todo.done) {
-      doneButton = <button onClick={this.undo.bind(this)}>Undo</button>;
+      doneButton = <button onClick={this.toggleTodo.bind(this)}>Undo</button>;
     } else {
-      doneButton = <button onClick={this.done.bind(this)}>Done</button>;
+      doneButton = <button onClick={this.toggleTodo.bind(this)}>Done</button>;
     }
     
     let detailView = null;

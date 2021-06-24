@@ -37,6 +37,7 @@ export default class TodoForm extends React.Component {
         <input id="body" type="text" value={this.state.body} onChange={this.handleBody.bind(this)}/><br/>
 
         <button>save</button>
+        <div>{this.props.errors}</div>
       </form>
     );
   };
